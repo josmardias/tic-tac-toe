@@ -1,7 +1,6 @@
 {
   "name": "tic-tac-toe",
   "private": true,
-  "version": "0.1.0",
   "scripts": {
     "build": "react-scripts build",
     "fixpack": "fixpack",
