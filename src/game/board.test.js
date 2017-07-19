@@ -1,6 +1,7 @@
 import {
   create,
   play,
+  getWinner,
 } from './board'
 
 import {
@@ -43,4 +44,56 @@ test('player makes the proper changes to the grid on his turn', () => {
   ]
 
   expect(state.grid).toEqual(expectedGrid)
+})
+
+test('no player is a winner', () => {
+  const actualGrid = [
+    ID_PLAYER_1, ID_PLAYER_1, ID_PLAYER_2,
+    ID_PLAYER_1, ID_PLAYER_1, ID_PLAYER_2,
+    ID_PLAYER_2, ID_PLAYER_2, ID_EMPTY,
+  ]
+  const actualState = {...initialState, grid: actualGrid}
+
+  const winner = getWinner(actualState)
+
+  expect(winner).toEqual(ID_EMPTY)
+})
+
+test('a player wins at horizontal', () => {
+  const actualGrid = [
+    ID_PLAYER_1, ID_PLAYER_1, ID_PLAYER_1,
+    ID_PLAYER_2, ID_PLAYER_2, ID_EMPTY,
+    ID_PLAYER_2, ID_PLAYER_2, ID_EMPTY,
+  ]
+  const actualState = {...initialState, grid: actualGrid}
+
+  const winner = getWinner(actualState)
+
+  expect(winner).toEqual(ID_PLAYER_1)
+})
+
+test('a player wins at vertical', () => {
+  const actualGrid = [
+    ID_PLAYER_1, ID_PLAYER_2, ID_PLAYER_2,
+    ID_PLAYER_1, ID_PLAYER_2, ID_PLAYER_2,
+    ID_PLAYER_1, ID_EMPTY, ID_EMPTY,
+  ]
+  const actualState = {...initialState, grid: actualGrid}
+
+  const winner = getWinner(actualState)
+
+  expect(winner).toEqual(ID_PLAYER_1)
+})
+
+test('a player wins at diagonal', () => {
+  const actualGrid = [
+    ID_PLAYER_1, ID_PLAYER_2, ID_PLAYER_2,
+    ID_PLAYER_2, ID_PLAYER_1, ID_PLAYER_2,
+    ID_PLAYER_2, ID_PLAYER_2, ID_PLAYER_1,
+  ]
+  const actualState = {...initialState, grid: actualGrid}
+
+  const winner = getWinner(actualState)
+
+  expect(winner).toEqual(ID_PLAYER_1)
 })
