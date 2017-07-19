@@ -9,3 +9,13 @@ export const create = () => {
     grid: Array(9).fill(ID_EMPTY),
   })
 }
+
+export const play = (state, playerId, gridPosition) => {
+  if (playerId !== state.playerTurn) {
+    return state
+  }
+
+  const changedGrid = Object.assign([], state.grid, {[gridPosition]: state.playerTurn})
+
+  return { ...state, grid: changedGrid }
+}
