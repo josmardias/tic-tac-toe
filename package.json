@@ -4,6 +4,7 @@
   "scripts": {
     "build": "react-scripts build",
     "fixpack": "fixpack",
+    "lint": "eslint --max-warnings 0 src",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom"
   },
