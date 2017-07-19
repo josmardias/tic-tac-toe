@@ -1,17 +1,17 @@
 {
   "name": "tic-tac-toe",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "react-scripts build",
+    "fixpack": "fixpack",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
+  },
   "dependencies": {
     "fixpack": "^2.3.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10"
-  },
-  "scripts": {
-    "fixpack": "fixpack",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom"
   }
 }
