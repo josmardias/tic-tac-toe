@@ -2,7 +2,7 @@ import {
   create,
   play,
   getWinner,
-} from './board'
+} from './match'
 
 import {
   ID_PLAYER_1,
@@ -16,7 +16,7 @@ beforeEach(() => {
   initialState = create()
 })
 
-test('creates an empty game state', () => {
+test('creates an empty match state', () => {
 
   const emptyGrid = [
     ID_EMPTY, ID_EMPTY, ID_EMPTY,
