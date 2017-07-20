@@ -46,6 +46,14 @@ test('player makes the proper changes to the grid on his turn', () => {
   expect(state.grid).toEqual(expectedGrid)
 })
 
+test('player turn changes after some player move', () => {
+  const state = play(initialState, ID_PLAYER_1, 0)
+  const nextState = play(state, ID_PLAYER_2, 1)
+
+  expect(state.playerTurn).toEqual(ID_PLAYER_2)
+  expect(nextState.playerTurn).toEqual(ID_PLAYER_1)
+})
+
 test('no player is a winner', () => {
   const actualGrid = [
     ID_PLAYER_1, ID_PLAYER_1, ID_PLAYER_2,

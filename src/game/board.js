@@ -11,6 +11,8 @@ export const create = () => {
   })
 }
 
+const getNextPlayer = (playerId) => playerId === ID_PLAYER_1 ? ID_PLAYER_2 : ID_PLAYER_1
+
 export const play = (state, playerId, gridPosition) => {
   if (playerId !== state.playerTurn) {
     return state
@@ -18,7 +20,13 @@ export const play = (state, playerId, gridPosition) => {
 
   const changedGrid = Object.assign([], state.grid, {[gridPosition]: state.playerTurn})
 
-  return { ...state, grid: changedGrid }
+  const nextPlayerId = getNextPlayer(state.playerTurn)
+
+  return {
+    ...state,
+    playerTurn: nextPlayerId,
+    grid: changedGrid,
+  }
 }
 
 const winPossibilities = [
