@@ -34,6 +34,15 @@ test('player can\'t alter grid when it\'s not his turn', () => {
   expect(state.grid[0]).toEqual(ID_EMPTY)
 })
 
+test('player can\'t alter a part of the grid that is not empty', () => {
+  const state = play(initialState, ID_PLAYER_1, 0)
+  const nextState = play(state, ID_PLAYER_2, 0)
+
+  expect(nextState.grid[0]).toEqual(ID_PLAYER_1)
+  // shallow equally can be used to detect wrong moves
+  expect(nextState).toBe(state)
+})
+
 test('player makes the proper changes to the grid on his turn', () => {
   const state = play(initialState, ID_PLAYER_1, 0)
 

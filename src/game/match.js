@@ -18,6 +18,10 @@ export const play = (state, playerId, gridPosition) => {
     return state
   }
 
+  if (state.grid[gridPosition] !== ID_EMPTY) {
+    return state
+  }
+
   const changedGrid = Object.assign([], state.grid, {[gridPosition]: state.playerTurn})
 
   const nextPlayerId = getNextPlayer(state.playerTurn)
