@@ -28,15 +28,9 @@ test('creates an empty match state', () => {
   expect(initialState.grid).toEqual(emptyGrid)
 })
 
-test('player can\'t alter grid when it\'s not his turn', () => {
-  const state = play(initialState, ID_PLAYER_2, 0)
-
-  expect(state.grid[0]).toEqual(ID_EMPTY)
-})
-
 test('player can\'t alter a part of the grid that is not empty', () => {
-  const state = play(initialState, ID_PLAYER_1, 0)
-  const nextState = play(state, ID_PLAYER_2, 0)
+  const state = play(initialState, 0)
+  const nextState = play(state, 0)
 
   expect(nextState.grid[0]).toEqual(ID_PLAYER_1)
   // shallow equally can be used to detect wrong moves
@@ -44,7 +38,7 @@ test('player can\'t alter a part of the grid that is not empty', () => {
 })
 
 test('player makes the proper changes to the grid on his turn', () => {
-  const state = play(initialState, ID_PLAYER_1, 0)
+  const state = play(initialState, 0)
 
   const expectedGrid = [
     ID_PLAYER_1, ID_EMPTY, ID_EMPTY,
@@ -56,8 +50,8 @@ test('player makes the proper changes to the grid on his turn', () => {
 })
 
 test('player turn changes after some player move', () => {
-  const state = play(initialState, ID_PLAYER_1, 0)
-  const nextState = play(state, ID_PLAYER_2, 1)
+  const state = play(initialState, 0)
+  const nextState = play(state, 1)
 
   expect(state.playerTurn).toEqual(ID_PLAYER_2)
   expect(nextState.playerTurn).toEqual(ID_PLAYER_1)
