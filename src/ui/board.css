@@ -1,0 +1,27 @@
+.board::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.board {
+  text-align: center;
+}
+
+.board-inner {
+  display: inline-block;
+  color: #444;
+  background-color: #EEEEEE;
+}
+
+.tile-container {
+  float: left;
+  width: 128px;
+  height: 128px;
+  line-height: 128px;
+}
+
+.tile-container.board-line-head {
+  display: block;
+  clear: both;
+}

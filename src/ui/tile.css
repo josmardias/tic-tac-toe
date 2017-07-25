@@ -1,0 +1,12 @@
+.tile {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-size: 48px;
+  cursor: pointer;
+  transition: 0.3s all;
+  margin: 0;
+  border-left: 1px dashed rgba(0, 0, 0, 0.1);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
