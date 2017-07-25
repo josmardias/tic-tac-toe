@@ -1,16 +1,20 @@
 {
   "name": "tic-tac-toe",
   "private": true,
+  "homepage": "https://josmardias.github.io/tic-tac-toe",
   "scripts": {
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "fixpack": "fixpack",
     "lint": "eslint --max-warnings 0 src",
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom"
   },
   "dependencies": {
     "classnames": "^2.2.5",
     "fixpack": "^2.3.1",
+    "gh-pages": "^1.0.0",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
