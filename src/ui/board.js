@@ -9,7 +9,10 @@ const getClasses = (index) => classnames({
   'board-line-head': index % 3 === 0,
 })
 
+const noop = () => {}
+
 const Board = ({
+  onClick = noop,
   grid = [],
   symbol = { 0: '', 1: 'X', 2: 'O' },
 }) => (
@@ -19,6 +22,7 @@ const Board = ({
         <div
           key={index}
           className={getClasses(index)}
+          onClick={() => { onClick(index) }}
         >
           <Tile
             symbol={symbol[tile] || ''}
