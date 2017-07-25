@@ -14,12 +14,22 @@ export default class Game extends Component {
 
     this.state = {
       currentMatch: createMatch(),
+      currentWinner: false,
       playing: true,
+      statistics: [],
     }
   }
 
   getCurrentMatch() {
     return this.state.currentMatch
+  }
+
+  startNewMatch() {
+    this.setState({
+      currentMatch: createMatch(),
+      currentWinner: false,
+      playing: true,
+    })
   }
 
   stopGame() {
@@ -34,11 +44,16 @@ export default class Game extends Component {
     return this.state.currentWinner
   }
 
+  getStatistics() {
+    return this.state.statistics
+  }
+
   updateCurrentWinner(winner) {
     if (!winner) {
       return
     }
     this.setState({ currentWinner: winner })
+    this.setState((previousState) => ({ statistics: [...previousState.statistics, winner] }))
     this.stopGame()
   }
 
@@ -57,8 +72,14 @@ export default class Game extends Component {
     this.playOnTile(tileIndex)
   }
 
+  handleStartNewMatchClick = (event) => {
+    event.preventDefault()
+    this.startNewMatch()
+  }
+
   render() {
     const currentWinner = this.getCurrentWinner()
+    const statistics = this.getStatistics()
 
     return(
       <div>
@@ -67,8 +88,13 @@ export default class Game extends Component {
           onClick={this.handleBoardClick}
         />
         { currentWinner && (
+          <div><a href="" onClick={this.handleStartNewMatchClick}>start new match</a></div>
+        )}
+        { currentWinner && (
           `Winner: ${currentWinner}`
         )}
+        <p>Statistics:</p>
+        { statistics.map((winner, index) => <p key={index}>{ winner }</p>) }
       </div>
     )
   }
