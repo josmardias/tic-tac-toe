@@ -12,6 +12,8 @@
   display: inline-block;
   color: #444;
   background-color: #EEEEEE;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+  border-right: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 .tile-container {
@@ -19,6 +21,8 @@
   width: 128px;
   height: 128px;
   line-height: 128px;
+  border-left: 1px dashed rgba(0, 0, 0, 0.1);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 .tile-container.board-line-head {
