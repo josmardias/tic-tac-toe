@@ -1,10 +1,11 @@
 .tile {
-  height: 100%;
-  width: 100%;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+
   font-size: 48px;
+
   cursor: pointer;
   transition: 0.3s all;
-  margin: 0;
 }

@@ -16,6 +16,7 @@
     "fixpack": "^2.3.1",
     "gh-pages": "^1.0.0",
     "github-fork-ribbon-css": "^0.2.1",
+    "lodash.chunk": "^4.2.0",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

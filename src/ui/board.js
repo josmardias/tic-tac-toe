@@ -1,13 +1,8 @@
 import React from 'react'
-import classnames from 'classnames'
+import chunk from 'lodash.chunk'
 
 import Tile from './tile'
 import './board.css'
-
-const getClasses = (index) => classnames({
-  'tile-container': true,
-  'board-line-head': index % 3 === 0,
-})
 
 const noop = () => {}
 
@@ -17,19 +12,18 @@ const Board = ({
   symbol = { 0: '', 1: 'X', 2: 'O' },
 }) => (
   <div className="board">
-    <div className="board-inner">
-      { (grid || []).map((tile, index) => (
-        <div
-          key={index}
-          className={getClasses(index)}
-          onClick={() => { onClick(index) }}
-        >
+    { chunk(grid || [], 3).map((row, gridIndex) => (
+      <div className="board-row" key={gridIndex}>
+        { row.map((tile, index) => (
           <Tile
+            key={index}
             symbol={symbol[tile] || ''}
+            className="board-tile-container"
+            onClick={() => onClick(gridIndex*3 + index)}
           />
-        </div>
+        ))}
+      </div>
     ))}
-    </div>
   </div>
 )
 

@@ -82,7 +82,7 @@ export default class Game extends Component {
     const statistics = this.getStatistics()
 
     return(
-      <div>
+      <div style={{ height: '100%' }}>
         <Board
           grid={this.getCurrentMatch().grid}
           onClick={this.handleBoardClick}
