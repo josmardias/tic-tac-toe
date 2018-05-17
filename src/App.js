@@ -9,7 +9,7 @@ import Game from './ui/game'
 
 const ForkMeOnGithub = () => (
   <a
-    className="github-fork-ribbon"
+    className="github-fork-ribbon fixed right-bottom"
     href="https://github.com/josmardias/tic-tac-toe"
     title="Fork me on GitHub"
   >
