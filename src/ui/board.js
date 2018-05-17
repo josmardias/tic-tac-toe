@@ -1,8 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import './board.css'
 import Tile from './tile'
+import './board.css'
 
 const getClasses = (index) => classnames({
   'tile-container': true,
