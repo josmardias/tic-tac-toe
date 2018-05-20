@@ -7,6 +7,7 @@ import {
 } from '../game/match'
 
 import Board from './board'
+import Scoreboard from './scoreboard'
 
 export default class Game extends Component {
   constructor(props) {
@@ -83,6 +84,7 @@ export default class Game extends Component {
 
     return(
       <div style={{ height: '100%' }}>
+        <Scoreboard statistics={statistics} />
         <Board
           grid={this.getCurrentMatch().grid}
           onClick={this.handleBoardClick}
@@ -93,8 +95,6 @@ export default class Game extends Component {
         { currentWinner && (
           `Winner: ${currentWinner}`
         )}
-        <p>Statistics:</p>
-        { statistics.map((winner, index) => <p key={index}>{ winner }</p>) }
       </div>
     )
   }
